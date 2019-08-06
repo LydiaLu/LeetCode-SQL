@@ -31,3 +31,10 @@ update salary set
 sex = case when sex = 'm' then 'f'
 else 'm' end;
 ```
+
+613. Shortest Distance in a Line
+```sql
+select min(abs(p1.x - p2.x)) as shortest
+from point p1 join point p2
+on p1.x != p2.x;
+```
