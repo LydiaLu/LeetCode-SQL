@@ -11,3 +11,11 @@ from Activity
 where activity_date between '2019-06-28' and '2019-07-27'
 group by activity_date;
 ```
+
+1142. User Activity for the Past 30 Days II
+```sql
+select round(coalesce(avg(a.num),0),2) as average_sessions_per_user
+from (select user_id, count(distinct_session_id) as num from Activity
+where activity_date between '2019-06-28' and '2019-07-27'
+group by user_id) a;
+```
