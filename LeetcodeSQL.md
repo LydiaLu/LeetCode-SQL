@@ -60,7 +60,7 @@ group by seller_id
 having sum(price) = (select sum(price) as num from Sales group by seller_id
 order by num desc limit 1);
 ```
-1083.Sales Analysis II
+1083. Sales Analysis II
 ```sql
 select distinct buyer_id
 from Sales join Product on Product.product_id = Sales.product_id
@@ -69,7 +69,7 @@ buyer_id not in (select buyer_id from Sales join Product
                   on Product.product_id = Sales.product_id 
                   where Product.product_name = 'iPhone');
 ```
-1084.Sales Analysis III
+1084. Sales Analysis III
 ```sql
 select distinct p.product_id, p.product_name
 from Product p join Sales s on p.product_id = s.product_id
@@ -79,14 +79,14 @@ and p.product_id not in (
   where s.sale_date < '2019-01-01' or s.sale_date > '2019-03-31'
 );
 ```
-197.Rising Temperature
+197. Rising Temperature
 ```sql
 select Weather.Id
 from Weather join Weather w 
   on datediff(Weather.RecordDate, w.RecordDate) = 1
 where Weather.Temperature > w.Temperatrue;
 ```
-1113.Reported Posts
+1113. Reported Posts
 ```sql
 select extra as report_reason, count(distinct post_id) as report_count
 from Actions
