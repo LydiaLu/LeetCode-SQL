@@ -19,3 +19,9 @@ from (select user_id, count(distinct_session_id) as num from Activity
 where activity_date between '2019-06-28' and '2019-07-27'
 group by user_id) a;
 ```
+610. Triangle Judgement
+```sql
+select x, y, z, 
+case when (x + y > z and x + z > y and y + z > x) then 'Yes' else 'No' end as triangle
+from triangle;
+```
