@@ -14,5 +14,5 @@
 * [Stanford Online Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
 * [SQLZoo](https://sqlzoo.net/)
 * [w3school SQL Tutorial](https://www.w3schools.com/SQl/default.asp)
-* [Newcoder](https://www.nowcoder.com/ta/sql）
+* [Newcoder](https://www.nowcoder.com/ta/sql)
 
