@@ -25,3 +25,9 @@ select x, y, z,
 case when (x + y > z and x + z > y and y + z > x) then 'Yes' else 'No' end as triangle
 from triangle;
 ```
+627. Swap Salary
+```sql
+update salary set
+sex = case when sex = 'm' then 'f'
+else 'm' end;
+```
