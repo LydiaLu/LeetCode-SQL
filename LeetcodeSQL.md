@@ -73,9 +73,16 @@ buyer_id not in (select buyer_id from Sales join Product
 ```sql
 select distinct p.product_id, p.product_name
 from Product p join Sales s on p.product_id = s.product_id
-where s.sale_date>= '2019-01-01' and s.sale_date <= '2019-03-31'
+where s.sale_date >= '2019-01-01' and s.sale_date <= '2019-03-31'
 and p.product_id not in (
   select product_id from sales as s 
   where s.sale_date < '2019-01-01' or s.sale_date > '2019-03-31'
 );
+```
+197.Rising Temperature
+```sql
+select Weather.Id
+from Weather join Weather w 
+  on datediff(Weather.RecordDate, w.RecordDate) = 1
+where Weather.Temperature > w.Temperatrue;
 ```
