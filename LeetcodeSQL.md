@@ -38,3 +38,17 @@ select min(abs(p1.x - p2.x)) as shortest
 from point p1 join point p2
 on p1.x != p2.x;
 ```
+176. Second Highest Salary
+```sql
+select 
+  ifnull((select Salary
+          from Employee
+          order by Salary desc
+          limit 1 offset 1),0) 
+as SecondHighestSalary
+```
+
+607. Sales Person
+```sql
+
+```
