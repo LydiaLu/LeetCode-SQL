@@ -11,8 +11,8 @@
 * [My Practice](https://github.com/LydiaLu/LeetCode-SQL/blob/master/LeetcodeSQL.md)
 
 ## Other Useful Resources
-* [Stanford Online Databases] (https://online.stanford.edu/courses/soe-ydatabases-databases)
+* [Stanford Online Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
 * [SQLZoo](https://sqlzoo.net/)
 * [w3school SQL Tutorial](https://www.w3schools.com/SQl/default.asp)
-* [牛客网](https://www.nowcoder.com/ta/sql）
+* [Newcoder](https://www.nowcoder.com/ta/sql）
 
