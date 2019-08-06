@@ -10,7 +10,7 @@
 ## [Leetcode DataBase](https://leetcode.com/problemset/database/)
 * [My Practice](https://github.com/LydiaLu/LeetCode-SQL/blob/master/LeetcodeSQL.md)
 
-## [Other Useful Resources]
+## Other Useful Resources
 * [Stanford Online Databases] (https://online.stanford.edu/courses/soe-ydatabases-databases)
 * [SQLZoo](https://sqlzoo.net/)
 * [w3school SQL Tutorial](https://www.w3schools.com/SQl/default.asp)
