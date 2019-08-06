@@ -93,3 +93,55 @@ from Actions
 where action = 'report' and action_date = '2018-07-04'
 group by extra;
 ```
+1075. Project Employees I
+```sql
+select p.project_id, round(avg(e.experience_years), 2) as average_years
+from Project p join Employee e 
+on p.employee_id = e.employee_id
+group by p.project_id;
+```
+1065. Project Employees II
+```sql
+select project_id
+from Project 
+group by project_id
+having count(distinct employee_id) = 
+       (select count(*)
+       from Project group by project_id
+       order by count(*) desc
+       limit 1);
+```
+1068. Product Sales Analysis I
+```sql
+select product_name, year, price
+from Sales
+left join Product on Product.product_id = Sales.product_id;
+```
+1069. Product Sales Analysis II
+```sql
+select product_id, sum(quantity) as total_quantity
+from Sales
+group by product_id;
+```
+620. Not Boring Movies
+```sql
+select * from cinema
+where mod(id, 2) = 1 and description <> 'boring'
+order by rating desc;
+```
+511. Game Play Analysis I
+```sql
+select player_id, min(event_date) as first_login
+from Activity
+group by player_id;
+```
+512. Game Play Analysis II
+```sql
+select player_id, device_id 
+from Activity
+where (player_id, event_date) in 
+  (select player_id, min(event_date) 
+  from Activity 
+  group by player_id);
+ ```
+ 
