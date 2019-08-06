@@ -57,6 +57,6 @@ as SecondHighestSalary
 select seller_id
 from Sales
 group by seller_id
-having sum(price) = (select sum(price) as num from Sales group b seller_id
+having sum(price) = (select sum(price) as num from Sales group by seller_id
 order by num desc limit 1);
 ```
