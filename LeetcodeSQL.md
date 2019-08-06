@@ -144,4 +144,45 @@ where (player_id, event_date) in
   from Activity 
   group by player_id);
  ```
- 
+ 597. Friend Requests I: Overall Acceptance Rate
+ ```sql
+ ```
+ 584. Find Customer Referee
+ ```sql
+ select name
+ from customer
+ where referee_id <> 2 or referee_id is null;
+ ```
+181. Employees Earning More Than Their Managers
+```sql
+select e1.Name as Employee
+from Employee e1 join Employee e2
+on e1.ManagerId = e2.id
+where e1.Salary > e2.Salary;
+```
+577. Employee Bonus
+```sql
+select name, bonus
+from Employee left join Bonus 
+on Employee.empId = Bonus.empId
+where bonus < 1000 or bonus is null;
+```
+182. Duplicate Emails
+```sql
+select distinct p1.Email
+from Person p1 join Person p2 
+on p1.Email = p2.Email
+group by p1.Id
+having count(*) > 1;
+```
+196. Delete Duplicate Emails
+```sql
+```
+183. Customers Who Never Order
+```sql
+select Name as Customers
+from Customers left join Orders
+on Customers.Id = Orders.CustomerId
+where CustomerId is null;
+```
+
