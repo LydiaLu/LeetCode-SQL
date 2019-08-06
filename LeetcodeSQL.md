@@ -86,3 +86,10 @@ from Weather join Weather w
   on datediff(Weather.RecordDate, w.RecordDate) = 1
 where Weather.Temperature > w.Temperatrue;
 ```
+1113.Reported Posts
+```sql
+select extra as report_reason, count(distinct post_id) as report_count
+from Actions
+where action = 'report' and action_date = '2018-07-04'
+group by extra;
+```
