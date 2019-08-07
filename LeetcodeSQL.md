@@ -288,6 +288,14 @@ on p1.x <> p2.x or p1.y <> p2.y;
 ```
 1132. Reported Posts II
 ```sql
+select round(avg(rate),2) as average_daily_percent
+FROM
+(select a.action_date, count(distinct r.post_id)/count(distinct a.post_id)*100 as rate
+FROM actions a
+LEFT JOIN removals r
+ON a.post_id=r.post_id
+where a.action='report' and a.extra='spam'
+group by a.action_date) temp
 ```
 178. Rank Scores
 ```sql
