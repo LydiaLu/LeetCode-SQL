@@ -259,6 +259,7 @@ where id = (
 ```
 1098. Unpopular Books
 ```sql
+
 ```
 608. Tree Node
 ```sql
@@ -312,7 +313,16 @@ limit 1 offset n-1;
 ```
 1107. New Users Daily Count
 ```sql
-
+select first_login_day as login_date,
+count(distinct user_id) as user_count
+from 
+  (select user_id, min(activity_date) as first_loin_day
+  from Traffic
+  where activity = 'login'
+  group by user_id) as t1
+where datediff('2019-06-30', first_login_day) <= 90
+group by first_login_day
+having count(distinct user_id) > 0;
 ```
 570. Managers with at least 5 Direct Reports
 ```sql
@@ -362,6 +372,15 @@ from Activity
 ```
 550. Game Play Analysis IV
 ```sql
+select round(
+  (select count(distinct player_id) from Activity
+   where (player_id, subdate(event_date,1) in (select player_id, min(event_date)
+   from Activity
+   group by player_id) from Activity
+   /
+   (select count(distinct player_id) from Activity)
+   ,2)
+as fraction;
 ```
 602. Friend Requests II: Who Has the Most Friends
 ```sql
