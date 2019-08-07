@@ -448,3 +448,46 @@ where occurences > mean
 group by business_id
 having count(business_id)>1;
 ```
+1127. User Purchase Platform
+```sql
+select 
+    p.spend_date,
+    p.platform,
+    ifnull(sum(amount), 0) total_amount,
+    count(user_id) total_users
+from 
+(
+    select distinct(spend_date), 'desktop' platform FROM Spending
+    union
+    select distinct(spend_date), 'mobile' platform FROM Spending
+    union
+    select distinct(spend_date), 'both' platform FROM Spending
+) p 
+left join (
+    select
+        spend_date,
+        user_id,
+        if(mobile_amount > 0, IF(desktop_amount > 0, 'both', 'mobile'), 'desktop') platform,
+        (mobile_amount + desktop_amount) amount
+    from (
+        select
+          spend_date,
+          user_id,
+          sum(case platform when 'mobile' then amount else 0 end) mobile_amount,
+          sum(case platform when 'desktop' then amount else 0 end) desktop_amount
+        from Spending
+        group by spend_date, user_id
+    ) o
+) t
+on p.platform=t.platform and p.spend_date=t.spend_date
+group by spend_date, platform;
+```
+262. Trips and Users
+```sql
+select t.Request_at as Day, 
+round(sum(case when Status like 'cancelled_%' then 1 else 0 end)/count(*),2) as 'Cancellation Rate'
+from Trips t join Users u
+on u.Users_Id = t.Client_Id
+where Banned = 'No' and t.Request_at between '2013-10-01' and '2013-10-03'
+group by t.Request_at;
+```
