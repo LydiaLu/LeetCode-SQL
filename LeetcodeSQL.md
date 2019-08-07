@@ -259,7 +259,14 @@ where id = (
 ```
 1098. Unpopular Books
 ```sql
-
+select Book.book_id, Book.name
+from Book 
+left join (select book_id, sum(quantity) as sold
+          from Orders
+          where dispatch_date < '2019-06-23' and dispatch_date >= '2018-06-24'
+          group by book_id) as t1
+on t1.book_id = Book.book_id
+where available_from <= '2019-05-24' and (t1.sold < 10 or t1.sold is null);
 ```
 608. Tree Node
 ```sql
@@ -384,6 +391,7 @@ as fraction;
 ```
 602. Friend Requests II: Who Has the Most Friends
 ```sql
+
 ```
 626. Exchange Seats
 ```sql
